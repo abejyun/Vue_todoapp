@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang=ja >
+  <head>
+    <meta charset="utf-8">
+    <title>Vue app</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <h2>
+        To do list
+      </h2>
+      <h2>
+        現在時刻：　{{ nowdate }}
+      </h2>
+      <form v-on:submit.prevent>
+        <input type="text" v-model="newItem">
+        <input type="date" v-model="setTime">
+        <button v-on:click="addItem">
+      Add
+      </button>
+      </form>
+      <ul>
+        <li v-for="(todo, index) in todos" class="todo">
+          <input type="checkbox" v-model="todo.isDone">
+          <span v-bind:class="{ done: todo.isDone }">{{ todo.item  }}</span>
+          <span v-bind:class="{ done: todo.isDone }">期限：{{  todo.settime }}</span>
+          <button v-on:click="deleteItem(index)">
+      DELETE
+      </button>
+        </li>
+      </ul>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ja.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

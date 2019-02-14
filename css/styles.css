@@ -1,0 +1,15 @@
+#app li>span.done {
+  text-decoration: line-through;
+}
+
+#app .todo {
+  padding: 15px;
+}
+
+#app li >span:nth-child(3) {
+  padding: 30px;
+}
+
+#app>h2,form {
+  text-align: center;
+}
