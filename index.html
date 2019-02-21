@@ -11,7 +11,7 @@
         To do list
       </h2>
       <h2>
-        現在時刻：　{{ nowdate }}
+          現在時刻 {{ nowdate }}
       </h2>
       <form v-on:submit.prevent>
         <input type="text" v-model="newItem">
@@ -24,13 +24,15 @@
         <li v-for="(todo, index) in todos" class="todo">
           <input type="checkbox" v-model="todo.isDone">
           <span v-bind:class="{ done: todo.isDone }">{{ todo.item  }}</span>
-          <span v-bind:class="{ done: todo.isDone }">期限：{{  todo.settime }}</span>
-          <button v-on:click="deleteItem(index)">
-      DELETE
-      </button>
+          <span v-bind:class="{ done: todo.isDone }">　期限　{{  todo.settime }}</span>
+          <button v-on:click="deleteItem(index)">DELETE</button>
         </li>
       </ul>
+      <p style="text-align: center;">{{ remaining }} / {{ todos.length}}件処理</p>
+      <button v-on:click="cleanItem">処理済みを削除</button>
+
     </div>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

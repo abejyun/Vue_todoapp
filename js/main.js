@@ -47,9 +47,21 @@
       },
       deleteItem: function(index) {
         this.todos.splice(index, 1)
-      }
+      },
+      cleanItem: function() {
+        this.todos = this.todos.filter(function(val) {
+          return val.isDone == false;
+        })
+      },
 
     },
+    computed: {
+      remaining: function() {
+        return this.todos.filter(function(val){
+          return val.isDone;
+        }).length;
+      }
+    }
 
 
 
